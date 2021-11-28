@@ -58,7 +58,7 @@ public class ContactActivity extends AppCompatActivity {
         //Sort by ascending
         String sort = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + "ASC";
         //Initialize cursor
-        Cursor cursor = getContentResolver().query(uri,null,null,null, sort);
+        Cursor cursor = getContentResolver().query(uri, null, null, null, sort);
 
         //Check condition
         if (cursor.getCount() > 0) {

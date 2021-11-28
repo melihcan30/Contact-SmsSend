@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(2000);
 
-                    Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                    Intent intent = new Intent(MainActivity.this, SendMessage.class);
                     startActivity(intent);
                 }
                 catch (InterruptedException e) {

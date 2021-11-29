@@ -24,6 +24,7 @@ public class ContactActivity extends AppCompatActivity {
     ArrayList<ContactModel> arrayList = new ArrayList<ContactModel>();
     MainAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +67,10 @@ public class ContactActivity extends AppCompatActivity {
             while (cursor.moveToNext()){
                 //Cursor move to next
                 //Get contact id
-                String id = cursor.getString((cursor.getColumnIndex(ContactsContract.Contacts._ID)));
+                String id = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
 
                 //Get contact name
-                String name =cursor.getString((cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
+                String name =cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
 
                 //Initialize phone uri
                 Uri uriPhone = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
@@ -83,7 +84,7 @@ public class ContactActivity extends AppCompatActivity {
                 //Check condition
                 if (phoneCursor.moveToNext()){
                     //When phone cursor move to next
-                    String number = phoneCursor.getString((phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)));
+                    String number = phoneCursor.getString(phoneCursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
                     //Initialize contact model
                     ContactModel model = new ContactModel();
